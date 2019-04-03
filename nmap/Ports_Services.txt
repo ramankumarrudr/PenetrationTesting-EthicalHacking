@@ -1,0 +1,103 @@
+Nmap TCP Ports (scanned using -F)
+
+Port   Service
+7      Echo Protocol
+9      Discard Protocol, SCTP
+13     Daytime Protocol
+21     File Transfer Protocol (FTP)
+22     Secure Shell (scp, sftp)
+23     Telnet
+25     Simple Mail Transfer Protocol (SMTP)
+26     AltaVista Firewall97, W32.Netsky
+37     Time Protocol
+53     Domain Name System (DNS)
+79     Finger Protocol
+80     Hypertext Transfer Protocol (HTTP)
+81     TorPark onion routing
+88     Kerberos
+106    3COM-TSMUX, Eudora PW changer, Mac OS X Server (Password), poppassd
+110    Post Office Protocol, version 3 (POP3)
+111    Open Network Computing Remote Procedure Call (ONC RPC, aka Sun RPC)
+113    Ident (Authentication for IRC), Authentication Service (auth)
+119    Network News Transfer Protocol (NNTP)
+135    DCE Endpoint Resolution, Microsoft EPMAP (Endpoint Mapper)
+139    NetBIOS Session Service
+143    Internet Message Access Protocol (IMAP)
+144    Universal Management Architecture, NewS window system
+179    Border Gateway Protocol (BGP)
+199    SMUX, SNMP Unix Multiplexer
+389    Lightweight Directory Access Protocol (LDAP)
+427    Service Location Protocol (SLP)
+443    Hypertext Transfer Protocol over TLS/SSL (HTTPS)
+444    Simple Network Paging Protocol (SNPP)
+445    Microsoft-DS (Directory Services) Active Directory, Windows Shares, SMB
+465    Authenticated SMTP over TLS/SSL (SMTPS)
+513    rlogin
+514    Remote Shell
+515    Line Printer Daemon (LPD)
+543    klogin (Kerberos login)
+544    kshell (Kerberos remote shell)
+548    Apple Filing Protocol (AFP) over TCP
+554    Real Time Streaming Protocol (RTSP)
+587    Email Message Submission (SMTP)
+631    Internet Printing Protocol (IPP)
+646    Label Distribution Protocol (LDP) - used in MPLS
+873    rsync File Synchronization Protocol
+990    FTPS Protocol (control), FTP over TLS/SSL
+993    Internet Message Access Protocol over TLS/SSL (IMAPS)
+995    Post Office Protocol 3 over TLS/SSL (POP3S)
+1025   Network Blackjack, NFS or ISS or Teradata, Windows RPC, Threats and Trojans
+1026   Calendar Access Protocol, Microsoft DCOM, Windows RPC, Trojans
+1027   icq instant messenger, Threats and Trojans
+1028   Trojans
+1029   Microsoft DCOM services
+1110   Start Web Admin Server (webadmstart), Client Status Info (nfsd-keepalive), EasyBits, Threats
+1433   Microsoft SQL Server (MSSQL)
+1720   H.323 Call Signaling
+1723   Point-to-Point Tunneling Protocol (PPTP)
+1755   Microsoft Media Services (MMS, ms-streaming)
+1900   Simple Service Discovery Protocl (SSDP), discovery of UPnP
+2000   Cisco Skinny Client Control Protocol (SCCP)
+2001   dc, wizard (curry), CAPTAN Test Stand System, Threats and Trojans
+2049   Network File System (NFS)
+2121   SCIENTIA-SSDB (scientia-ssdb), FTP proxy
+2717   PN REQUESTER (pn-requester), KnowShowGo P2P
+3000   Cloud9 IDE, Ruby on Rails, Meteor, Resilio Sync
+3128   Squid caching web proxy
+3306   MySQL database system
+3389   Microsoft Terminal Server (RDP) aka Windows Based Terminal (WBT)
+3986   GTP' 3GPP GSM/UMTS CDR logging protocol
+4899   Radmin (radmin-port, radmin), W32.Rahack
+5000   UPnP, Vtun VPN, Synology Management Console, Flask, Heroku, League of Legends
+5009   Microsoft Windows Filesystem (winfs), AirPort Admin Utility
+5051   ita-agent Symantec Intruder Alert
+5060   Session Initiation Protocol (SIP)
+5101   Talarian_TCP (talarian-tcp)
+5190   AOL Instant Messenger
+5357   Web Services for Devices (WSDAPI)
+5432   PostgreSQL
+5631   pcANYWHEREdata (Symantec)
+5666   NRPE (Nagios)
+5800   VNC Remote Frame Buffer over HTTP, ProjectWise Server
+5900   Remote Frame Buffer protocol (RFB), Virtual Network Computing (VNC) RFB protocol
+6000   X11 (X Window System)
+6001   X11
+6646   McAfee Network Agent
+7070   Real Time Streaming Protocol (RTSP)
+8000   SHOUTcast, Icecast, and iTunes Radio
+8008   Alternative HTTP, IBM HTTP Server, iCal
+8009   Apache Jserv (ajp13)
+8080   Alternative HTTP, Apache Tomcat, Atlassian JIRA
+8081   BlackICE ICEcap (blackice), Web Service, iTunes Radio Streams (irdmi), Sun Proxy
+8443   SQ Soft Plesk, Apache Tomcat SSL, Promise WebPAM SSL, iCal over SSL
+8888   Freenet web UI
+9100    PDL Data Stream
+9999    Urchin Web Analytics
+10000   Network Data Management Protocol, BackupExec, Webmin
+32768   Filenet TMS (filenet-tms), Hacker's Paradise (hackersparadise)
+49152   Certificate Management over CMS
+49153   Certificate Management over CMS
+49154   Certificate Management over CMS
+49155   Certificate Management over CMS
+49156   Certificate Management over CMS
+49157   Certificate Management over CMS
