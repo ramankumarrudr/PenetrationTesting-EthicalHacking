@@ -87,7 +87,7 @@ Nmap TCP&UDP Port Scanning:
    - nmap sevice probes database , CPE database
     - nmap -sV<Service version detection>(Takes long time, doest scan udp ports)
     Aditional Options:
-      - --version-intensity<level , default = 7>(lower levls are used for vommon services)
+      - --version-intensity<level> , default = 7>(lower levls are used for vommon services)
       - --version-light
       - --version-all
       - --version-trace(debugging information)
@@ -105,5 +105,33 @@ Operating System Detection & Fingerprinting:
   
   - nmap -O<target>
   - nmap -O --script=smb-os-discovery -v <target>
-     
+    Command line options:
+    - --osscan-limit(Performs only when it finds one open and closed port)
+    - --osscan-guess or --fuzzy
+    - --max-os-tries <tries_no> <target>
+  - nmap -A(alternate to -O,Advanced scan provides more information)
+  
+  Example Scan:
+    - nmap -sn 192.168.1.0/24(ping scan)
+    - nmap -O -v 192.168.1.0/24(-v stands for verbosity)
+    - nmap -O --script=smb-os-discovery <target>(Gives more accurate results for windows network)
+    - nmap -O --max-os-triees 1 --osscan-guess <target>
+    - nmap -A <target>
+          or
+    - nmap -sS --script=default(or -sC) -sV -O --traceroute <target>
+    
+NSE Vulnerability Testing & Exploitation tool:
+   -Automate networking tasks and uses (lua script)
+   -Scripts contain a feild associating with one or more categories, includes:
+    -Auth               -Malware
+    -Broadcast          -save
+    -Default            -Version
+    -Discovery          -Vuln
+    -DOS                -Intrusive
+    -Exploit            -Fuzzer
+    -External         
+    
+    Running Default Scans:
+      - nmap -sC <target> || nmap --scrip<name/category> <target> || nmap -A <target>
+    
     
