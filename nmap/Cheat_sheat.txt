@@ -1,1 +1,109 @@
 Nmap CheatSheet:
+
+Target Specification:
+  #Always It is a good practice to mention target at last
+  1) nmap <ip-address>
+  2) nmap <ip-address range> (192.15.3.0-35)
+  3) nmap <network in CIDRnotation>(192.15.3.0/24)
+  4) nmap <fqdn>(google.com)
+  5) nmap <dn in CIDRnotation>(gogle.com/24)
+  
+  Aditional Options:
+    
+    1) nmap <ip1 ip2 ip3>
+    2) nmap -iL <targets.txt> (reads the targets from text file )
+    3) nmap -iR <number of targets> (Random hosts on internet are choosen)
+    4) nmap --exclude <ip> (nmap 192.15.3.0/254 --exclude 192.15.3.30,<ip2>,<ip3>)
+    5)nmap --excludefile <targets.txt> 
+  
+  Scanning Options:
+    1) nmap -F <ip> (fast scan)
+    2) nmap -sn <ip CIDR> (Ping sweep - A ip-echo request is sent tcp-syn-443 tcp-ack-80 icmp-timestamp request)
+    3) nmap -sn <dn CIDR>
+    4) nmap -sS <syn scan> -p <port> -T2(time) -iR <number>
+ 
+ Nmap Scan Techniques:
+  IETF RFC 793(TCP) and RFC 1180(Tcp/Ip Protocol)
+    - Default nmap scan is TCP syn-scan
+    
+      - nmap -sS(SYN Scan,AKA "Half-open") - Default
+      - nmap -sT(Tcp connect scan) - 3 way handshake is performed
+      - nmap -sU(Udp scan) -can be combined with -sS at same time (services : DNS - 53,DHCP_client-68,DHCP server-67,SNMP -161,162 ,TFTP -69 ,VOIP -5060,Syslog514  )
+      - nmap -sO(ip protocol scan) - Ip protocols are supported by target
+      - nmap -sY(SCTP INIT Scan)
+      - nmap -sA(TCP ACK Scan)
+      - nmap -sW(TCP Window Scan)
+      - nmap -sM(TCP Maimon Scan)
+      
+      Out of state scans for firewall evassion:
+        - nmap -sN(Null Scan) [All Tcp scan is set to be 0]
+        - nmap -sF(Fin scan) [Sets Tcp Fin bit to one and Server responds with rst(reset)]
+        - nmap -sX(Xmas Scan) [Fin , Psh , URG are set to one if received back port-closed else filtered]
+        - nmap -b(FTP Bounce Back)
+ 
+ Nmap output to a file:
+  - nmap -oN<file type nmap>
+  - nmap -oX<output Xml>
+ 
+ Nmap Timing:
+  - nmap -T5<number in rage 1-5>
+ 
+ Nmap HostDiscovery : Host discovery narrow down the potential targets.
+  [Note: Having Host Discovery at first is good]
+    
+    - namp -sL(List Scan, It doest send any packets instead it would use reverse dns to identify hosts) 
+    - nmap -sn(No PortScan,PingScan or Ping sweep)
+    - nmap -Pn(No Ping, can be combined with -sn,skips nmaps discovery stage)
+    Additional Features:
+      - -n(No DNS Resolution)
+      - -R(Resolve all using DNS)
+      - --traceroute(trace path)
+      - --dns-servers <server1>,<server2>,<server3>(Uses custom DNS PTR records)
+      
+      - nmap -PS(sets Tcp syn ping),-PA(Sets TCP Ack ping),-PU(Sets TCP UDP ping),-PY(Tcp SETP init ping),-PO(Ip ping)
+      - nmap -PE,-PP,PM(Icmp Ping)
+      - nmap -PR (ARP ping , only on local network)
+      Adittional Features:
+        - --disable-arp-ping(disable arp on ipv4 and enables on ipv6)
+        - --system-dns(It uses default name server in our system)
+
+Nmap TCP&UDP Port Scanning:
+  - No of Ports in a System 65535
+    -Well Known Ports - 1-1023
+    -Dynamic or Private Ports
+  -6 Port states that are observed by namp
+    -open                             
+    -filtered(Firewalls drop the packets,cant determine OPN or NOT)
+    -closed(No application is listening on the port)     
+    -unfiltered(Port is accesible and cant determine whether it is open or not)
+    -openfiltered(Unable todetermine whether port is opn or not)
+    -closed filter(Cant determine whether the port is closed or filtered)
+  Example Scan:
+    - nmap -sS -sU -p T:21-139,U:53-88 <ip addr>
+    - nmap -sS -sU -p T:http,domain,U:53 <ip addr>
+    
+ Nmap Service and Application Version Detection:
+   - It helps in interogating the services,versions and applications running on host.
+   - nmap sevice probes database , CPE database
+    - nmap -sV<Service version detection>(Takes long time, doest scan udp ports)
+    Aditional Options:
+      - --version-intensity<level , default = 7>(lower levls are used for vommon services)
+      - --version-light
+      - --version-all
+      - --version-trace(debugging information)
+   
+   Example Scans Version detection:
+    - nmap -sS -sU -p T:80,88139,443,U:123,137 -sV 192.168.1.10
+    - nmap -sS -sU -p T:80,88139,443,U:123,137 -sV --version-intensity  5 192.168.1.10
+    - nmap -sS -sU -p T:80,88139,443,U:123,137 -sV --version-light  5 192.168.1.10
+   Banner grabing:
+    - telnet 10.168.1.1 25(SMTP Server has some information)
+    - telnet smtpgmail.com 587(Gmail mail server)
+    
+Operating System Detection & Fingerprinting:
+  - nmap sends 16 Tcp,Udp and Icmp probes to target
+  
+  - nmap -O<target>
+  - nmap -O --script=smb-os-discovery -v <target>
+     
+    
