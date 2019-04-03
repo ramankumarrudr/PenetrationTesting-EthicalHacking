@@ -133,5 +133,38 @@ NSE Vulnerability Testing & Exploitation tool:
     
     Running Default Scans:
       - nmap -sC <target> || nmap --scrip<name/category> <target> || nmap -A <target>
-    
+      
+    Example Scans on Cisco Devises:
+      - step1 - Os and sV Scan
+      - nmap -Sc <target> (default nse Scan)
+      - nmap --script-help <script>(Gives the Insights of the nse scripts)
+      - nmap --script default,safe <target>(Run Multiple Categories)
+   (Note Linux wildCards for searching  - *vnc*.* )  
+      - nmap --script vnc-info,vnc-title <target>
+      - nmap --script vuln <target> (Runs all the vulnarbility scripts)
+   (Note Linux Wildcards for Searching - *telnet*.*)  
+      - nmap --script telnet-brute <target>(Exploit)
+      - nmap --script http-default-accounts -T5 <target> (Http Exploit)
+      - nmap --script http-slowloris <target> (Dos Attack)
+Timing and Performance Nmap:
+  - By adjusting Timing and performance we can evade IDS
+  -Limit The ports & Use Timing Options
+  - Firewalls can slow down the scans. Nmap can use Parallelism by parllel probing.
+  - Start with Clear goals , keep nmap updated , optimizing timing parameters.
+  Timing Tmplets:
+    - T<#0-5>
+      -T0 = Paranoid for ids evasion
+      -T1 = Sneaky used for Ids evasion
+      -T2 = Polite (slow down the scan)
+      -T3 = Normal(Default)
+      -T4 = Agrassive(Assumes you are on fast network)
+      -T5 = Insane(Very Fast network and can be flagged by ids)
+     -Timing Control Options:
+      - --host-timeout<time>(ms,s,m,h)
+      - --min-rtt-timeout/max-rtt-timeout/initial-rtt-timeout<time>
+      - --min-hostgroup/max-hostgroup<num hosts>
+      - --min-parallelism / max-parallelism<num probes>
+      - --scan-delay/--max-scan-delay<time>
+      (Note all these timing Controls are automatically adjusted based on Timing Templets)
+  
     
